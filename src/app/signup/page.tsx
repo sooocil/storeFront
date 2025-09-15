@@ -38,9 +38,12 @@ const SignupPage = () => {
   const users: User[] = JSON.parse(localStorage.getItem("users") || "[]");
 
   users.push({
+    id: Date.now().toString(),
     name: data.name,
     email: data.email,
     password: data.password,
+    status: "active",
+    role: "user",
   });
 
   localStorage.setItem("users", JSON.stringify(users));
