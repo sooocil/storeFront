@@ -16,3 +16,4 @@ export const useProducts = (): UseQueryResult<Product[], Error> => {
     retry: 1,
   });
 };
+  
