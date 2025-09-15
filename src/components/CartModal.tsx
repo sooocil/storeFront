@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useCartStore } from "@/store/cartStore";
+import { Button } from "./ui/button";
 
 interface Props {
   open: boolean;
@@ -44,12 +45,12 @@ export default function CartModal({ open, onClose }: Props) {
                 <div className="flex-1">
                   <p className="font-semibold text-sm">{item.title}</p>
                 </div>
-                <button
-                  className="text-red-500 hover:underline text-sm"
+                <Button
+                  className="text-white hover:underline text-sm"
                   onClick={() => removeFromCart(item.id)}
                 >
                   Remove
-                </button>
+                </Button>
               </li>
             ))}
           </ul>
