@@ -1,30 +1,28 @@
+
+
+
 "use client";
+
+//here this page will show all product fetched from api "..."
+
 import ProductCard from "@/components/ProductCard";
-
-
 import { useProducts } from "@/hooks/useProducts";
 
-
-export default function HomePage() {
+export default function ProductsPage() {
   const { data: products, isLoading, isError } = useProducts();
 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error loading products.</div>;
 
-  //h this featured will show only 8 products from top
-  const featured = products?.slice(0, 8);
-
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Featured Products</h1>
+      
+      <h1 className="text-2xl font-bold mb-4">All Products</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {featured?.map((product) => (
+        {products?.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
-      <a href="/products" className="text-teal-600 mt-4 text-center block hover:underline">
-        View All Products
-      </a>
     </div>
   );
 }
